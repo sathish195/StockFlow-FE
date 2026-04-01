@@ -85,10 +85,19 @@ const Products = () => {
                   Edit
                 </Link>
 
+
+  <Link
+                  to={`/update-stock/:${p.id}`}
+                  state={{ product: p }}
+                  className="btn btn-sm btn-info me-2"
+                >
+    Update Stock
+    </Link>
                 <button
                   className="btn btn-sm btn-danger"
                   onClick={() => handleDelete(p.id)}
                 >
+ 
                   Delete
                 </button>
               </td>

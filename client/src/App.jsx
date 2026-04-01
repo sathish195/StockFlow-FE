@@ -8,6 +8,7 @@ import AddProduct from "./componets/products/Addproducts";
 import EditProduct from "./componets/products/Editproducts";
 import Layout from "./componets/Layout";
 import ProtectedRoute from "./componets/Protect";
+import StockUpdate from "./componets/products/Stockupdate";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/add-product" element={<AddProduct />} />
           <Route path="/edit-product/:id" element={<EditProduct />} />
+          <Route path = "/update-stock/:id" element={<StockUpdate />} />
         </Route>
 
       </Routes>
