@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { apiRequest } from "../../api";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
+
 
 
 const EditProduct = () => {
@@ -88,11 +90,20 @@ const EditProduct = () => {
         token: localStorage.getItem("token"), // ✅ include token if required
       });
 
-      alert("Product updated successfully");
+    //   alert("Product updated successfully");
+      toast.success( "Product updated successfully ✅");
+
       navigate("/products");
 
     } catch (err) {
       setError(err.message);
+      const message =
+      err?.response?.data?.message ||
+      err?.message ||
+      "products updated failed ❌";
+
+    setError(message);
+    toast.error(message);
     } finally {
       setLoading(false);
     }

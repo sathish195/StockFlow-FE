@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { apiRequest } from "../api";
+import { toast } from "react-toastify";
+
 const Dashboard = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -8,15 +10,28 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
+        const token = localStorage.getItem("token");
+        console.log(token,"token--->");
+
+        if (!token) {
+            alert("Please login first");
+          toast.error("Please login first ❌");
+          setLoading(false);
+          return;
+        }
 
         const res = await apiRequest({
             endpoint: "/dashboard",
             token: localStorage.getItem("token"),
           });
+          console.log("Dashboard Data:", res);
         // const res = await axios.get("http://localhost:5000/api/dashboard"); // change URL if needed
         setData(res.data);
       } catch (error) {
+        console.log(error);
+        toast.error("Something went wrong ❌");
         console.error("Error fetching dashboard:", error);
+        alert(error.message || "Failed to load dashboard");
       } finally {
         setLoading(false);
       }

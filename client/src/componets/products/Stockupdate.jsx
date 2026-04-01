@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { apiRequest } from "../../api";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const StockUpdate = () => {
   const location = useLocation();
@@ -70,7 +71,8 @@ const StockUpdate = () => {
         },
       });
 
-      alert("Stock updated ✅");
+    //   alert("Stock updated ✅");
+      toast.success("Stock updated successfully ✅");
 
       // ✅ Redirect back
       navigate("/products");
@@ -78,6 +80,7 @@ const StockUpdate = () => {
     } catch (err) {
       console.log(err);
       alert("Failed to update stock");
+      toString.error("Failed to update stock ❌");
     } finally {
       setLoading(false);
     }

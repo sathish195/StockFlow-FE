@@ -1,4 +1,6 @@
-const BASE_URL = "https://stockflow-d77r.onrender.com/api";
+const BASE_URL = "http://localhost:8080/api";
+// const BASE_URL = "https://stockflow-d77r.onrender.com/api";
+
 
 export const apiRequest = async ({
   endpoint,
