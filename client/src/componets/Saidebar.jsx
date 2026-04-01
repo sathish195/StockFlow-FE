@@ -1,8 +1,12 @@
-// components/Sidebar.jsx
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
+  const getLinkClass = ({ isActive }) =>
+    isActive
+      ? "nav-link text-warning fw-bold"
+      : "nav-link text-white";
+
   return (
     <div
       className="bg-dark text-white p-3"
@@ -11,23 +15,35 @@ const Sidebar = () => {
       <h5 className="text-center mb-4">Menu</h5>
 
       <ul className="nav flex-column">
+
+        {/* Dashboard */}
         <li className="nav-item mb-2">
-          <Link className="nav-link text-white" to="/dashboard">
+          <NavLink to="/dashboard" className={getLinkClass}>
             📊 Dashboard
-          </Link>
+          </NavLink>
         </li>
 
+        {/* Products */}
         <li className="nav-item mb-2">
-          <Link className="nav-link text-white" to="/products">
+          <NavLink to="/products" className={getLinkClass}>
             📦 Products
-          </Link>
+          </NavLink>
         </li>
 
-        <li className="nav-item">
-          <Link className="nav-link text-white" to="/settings">
-            ⚙️ Settings
-          </Link>
+        {/* Add Product */}
+        <li className="nav-item mb-2">
+          <NavLink to="/add-product" className={getLinkClass}>
+            ➕ Add Product
+          </NavLink>
         </li>
+
+        {/* Settings */}
+        <li className="nav-item">
+          <NavLink to="/settings" className={getLinkClass}>
+            ⚙️ Settings
+          </NavLink>
+        </li>
+
       </ul>
     </div>
   );

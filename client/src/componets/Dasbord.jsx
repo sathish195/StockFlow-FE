@@ -4,10 +4,12 @@ import Layout from "./Layout";
 
 const Dashboard = () => {
   return (
-    <Layout>
-      <h3>Dashboard</h3>
-      <p>Welcome to StockFlow dashboard 🚀</p>
-    </Layout>
+    // <Layout>
+    <>
+       <h3>Dashboard</h3>
+       <p>Welcome to StockFlow dashboard 🚀</p>
+    </>
+   
   );
 };
 

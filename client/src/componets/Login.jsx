@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { apiRequest } from "../api";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+          navigate("/dashboard");
+        }
+      }, []);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -35,7 +45,7 @@ const Login = () => {
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
-
+      navigate("/dashboard");
       alert(data.message || "Login successful");
 
     } catch (err) {
