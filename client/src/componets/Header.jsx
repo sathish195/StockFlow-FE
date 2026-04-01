@@ -11,7 +11,7 @@ const handleLogout = () => {
     alert("Logged out successfully!");
     }
   return (
-    <div className="bg-white shadow-sm px-4 py-2 d-flex justify-content-between align-items-center">
+    <div className="bg-dark text-white p-3 shadow-sm px-4 py-2 d-flex justify-content-between align-items-center" >
       <h5 className="mb-0">StockFlow</h5>
 
       <div>
